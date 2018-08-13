@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -84,13 +85,13 @@ class PlayerFragment : Fragment() {
                     mPlayer = player
                     mPlayer?.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT)
                     Log.d(Constant.TAG, "${itemModel.link}")
-                    val string = itemModel.link?.split("?v=")?.get(1)
+                    val videoId = itemModel.link?.split("?v=")?.get(1)
                     if (itemModel.currentMins == 0) {
                         itemModel.isPlaying = true
                         itemModel.isEnding = false
-                        mPlayer?.loadVideo(string)
+                        mPlayer?.loadVideo(videoId)
                     } else {
-                        mPlayer?.loadVideo(string, itemModel.currentMins)
+                        resumeDialog(videoId)
                     }
                     mPlayer?.play()
                     playerState()
@@ -103,6 +104,25 @@ class PlayerFragment : Fragment() {
                 Log.d(Constant.TAG, "errorMessage: $errorMessage")
             }
         })
+    }
+
+    private fun resumeDialog(videoId: String?) {
+        val builder1 = AlertDialog.Builder(context!!)
+        builder1.setMessage(getString(R.string.resumePlaying))
+        builder1.setTitle(R.string.app_name)
+        builder1.setCancelable(false)
+        builder1.setPositiveButton(getString(R.string.resumeBtn)) { dialog, id ->
+            mPlayer?.loadVideo(videoId, itemModel.currentMins)
+            dialog.dismiss()
+        }
+
+        builder1.setNegativeButton(getString(R.string.negativeBtn)) { dialog, id ->
+            mPlayer?.loadVideo(videoId)
+            dialog.dismiss()
+        }
+
+        val alert11 = builder1.create()
+        alert11.show()
     }
 
     private fun playerState() {

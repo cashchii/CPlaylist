@@ -5,6 +5,8 @@
     <string name="tvPlayer">Video Name</string>
     <string name="nowPlaying">กำลังรับชมในขณะนี้...</string>
     <string name="exitString">คุณต้องการออกจาก CPlaylist ?</string>
+    <string name="resumePlaying">รับชมต่อจากคราวที่แล้ว?</string>
+    <string name="resumeBtn">ยืนยัน</string>
     <string name="positiveBtn">ใช่</string>
     <string name="negativeBtn">ไม่ใช่</string>
 </resources>
