@@ -16,4 +16,9 @@ object Constant : CommonFunction() {
         const val FM_PLAYLIST = "playlist"
         const val FM_PLAYER = "player"
     }
+
+    object BTN {
+        const val POSITIVE = "positive"
+        const val NEGATIVE = "negative"
+    }
 }

@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.cashchii.production.cplaylist.R
 import com.cashchii.production.cplaylist.common.Constant
+import com.cashchii.production.cplaylist.common.dialog.CustomDialog
 import com.cashchii.production.cplaylist.model.ItemModel
 import com.cashchii.production.cplaylist.playlist.view.activity.PlaylistActivity
 import com.cashchii.production.cplaylist.playlist.viewmodel.PlaylistViewModel
@@ -107,22 +107,12 @@ class PlayerFragment : Fragment() {
     }
 
     private fun resumeDialog(videoId: String?) {
-        val builder1 = AlertDialog.Builder(context!!)
-        builder1.setMessage(getString(R.string.resumePlaying))
-        builder1.setTitle(R.string.app_name)
-        builder1.setCancelable(false)
-        builder1.setPositiveButton(getString(R.string.resumeBtn)) { dialog, id ->
-            mPlayer?.loadVideo(videoId, itemModel.currentMins)
-            dialog.dismiss()
+        CustomDialog().showDialog(playlistActivity, getString(R.string.resumePlaying), getString(R.string.resumeBtn)) {
+            when (it) {
+                Constant.BTN.POSITIVE -> mPlayer?.loadVideo(videoId, itemModel.currentMins)
+                else -> mPlayer?.loadVideo(videoId)
+            }
         }
-
-        builder1.setNegativeButton(getString(R.string.negativeBtn)) { dialog, id ->
-            mPlayer?.loadVideo(videoId)
-            dialog.dismiss()
-        }
-
-        val alert11 = builder1.create()
-        alert11.show()
     }
 
     private fun playerState() {
