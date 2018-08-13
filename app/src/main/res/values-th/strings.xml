@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tvPlaylist">Playlist Name</string>
+    <string name="tvPlayer">Video Name</string>
+    <string name="nowPlaying">กำลังรับชมในขณะนี้...</string>
+    <string name="exitString">คุณต้องการออกจาก CPlaylist ?</string>
+    <string name="positiveBtn">ใช่</string>
+    <string name="negativeBtn">ไม่ใช่</string>
+</resources>

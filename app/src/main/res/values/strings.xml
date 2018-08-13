@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CPlaylist</string>
+
+    <string name="tvPlaylist">Playlist Name</string>
+    <string name="tvPlayer">Video Name</string>
+    <string name="nowPlaying">Now Playing...</string>
+    <string name="exitString">Are you sure to exit CPlaylist ?</string>
+    <string name="positiveBtn">YES</string>
+    <string name="negativeBtn">NO</string>
 </resources>

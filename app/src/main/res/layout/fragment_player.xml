@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_common" />
+
+    <FrameLayout
+        android:id="@+id/youtubeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/nowPlaying"
+        style="@style/VideoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/youtubeContainer"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/nowPlaying" />
+
+    <TextView
+        android:id="@+id/tvTitleName"
+        style="@style/VideoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nowPlaying"
+        android:drawableStart="@drawable/ic_action_youtube"
+        android:gravity="center_vertical"
+        android:text="@string/tvPlayer" />
+
+    <TextView
+        android:id="@+id/tvLink"
+        style="@style/LinkUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitleName"
+        android:paddingStart="10dp"
+        android:text="Link" />
+
+</RelativeLayout>
