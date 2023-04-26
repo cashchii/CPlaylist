@@ -8,7 +8,7 @@ object Constant : CommonFunction() {
     const val DB_VERSION = 1
     const val DB_NAME = "cplaylist-db"
     const val TAG = "LogCplaylist"
-    const val YOUTUBE_API = "AIzaSyD_xMDzIxvbKONGsYSZ2wN0GzWCgPtOcn8"
+    const val YOUTUBE_API = "AIzaSyD_xMDz"
 
     const val ITEM_MODEL = "itemModel"
 
